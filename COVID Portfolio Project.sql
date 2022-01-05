@@ -49,6 +49,15 @@ Where continent is not null
 Group by continent
 order by TotalDeathCount desc
 
+--By Continents
+Select location, SUM(cast(new_deaths as int)) as TotalDeathCount
+From PortfolioProject.dbo.CovidDeaths
+Where continent is null
+and location not in ('World', 'European Union', 'International', 'Upper middle income', 'High income', 'Lower middle income', 'Low income')
+Group by location
+order by TotalDeathCount desc
+
+
 
 --Global 
 Select date, SUM(new_cases) as total_cases, SUM(cast(new_deaths as int)) as total_deaths, SUM(cast(new_deaths as int))/SUM(new_cases)*100 as DeathPercentage
