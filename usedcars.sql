@@ -118,6 +118,15 @@ FROM #usedcars
 GROUP by manufacturer, year
 ORDER by manufacturer,year DESC
 
+-- Get number of rows by manufacturer to see which manufacturer had most used car listing on Craigslist (5)
+
+SELECT TOP 5 manufacturer,COUNT(manufacturer) as Listing_COUNT
+FROM #usedcars
+GROUP BY manufacturer
+ORDER BY COUNT(manufacturer) DESC
+
+
+
 -- Creating View for Visualization
 
 Create View usedcars as 
